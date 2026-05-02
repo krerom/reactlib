@@ -32,9 +32,6 @@
 import React from "react";
 import "./Alert.css";
 
-import React from "react";
-import "./Alert.css";
-
 import {
   Info,
   CheckCircle,
