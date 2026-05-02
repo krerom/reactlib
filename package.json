@@ -4,7 +4,7 @@
   "main": "index.js",
   "module": "dist/index.mjs",
   "scripts": {
-    "build": "tsup src/index.js --format esm,cjs --external react,react-dom,lucide-react"
+    "build": "tsup src/index.js --format esm,cjs --external react,react-dom,react/jsx-runtime,lucide-react"
   },
 
   "peerDependencies": {
