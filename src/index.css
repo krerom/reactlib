@@ -1,0 +1,123 @@
+:root * {
+    box-sizing: border-box;
+}
+
+:root {
+
+    /* --- Palette --- */
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+
+    --indigo-50: #eef2ff;
+    --indigo-100: #e0e7ff;
+    --indigo-200: #c7d2fe;
+    --indigo-400: #818cf8;
+    --indigo-500: #6366f1;
+    --indigo-600: #4f46e5;
+    --indigo-700: #4338ca;
+    --indigo-800: #3730a3;
+    --indigo-900: #312e81;
+
+    --amber-50: #fffbeb;
+    --amber-100: #fef3c7;
+    --amber-300: #fcd34d;
+    --amber-400: #fbbf24;
+    --amber-500: #f59e0b;
+    --amber-600: #d97706;
+    --amber-700: #b45309;
+    --amber-800: #92400e;
+
+    --emerald-50: #ecfdf5;
+    --emerald-100: #d1fae5;
+    --emerald-500: #10b981;
+    --emerald-600: #059669;
+    --emerald-700: #047857;
+    --emerald-800: #065f46;
+
+    --rose-50: #fff1f2;
+    --rose-100: #ffe4e6;
+    --rose-200: #fecdd3;
+    --rose-500: #f43f5e;
+    --rose-600: #e11d48;
+    --rose-700: #be123c;
+    --rose-800: #9f1239;
+
+    /* --- Semantic tokens --- */
+    --btn-radius: 9px;
+    --btn-radius-pill: 999px;
+    --btn-font: -apple-system, "Geist", "Inter Variable", BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --btn-font-weight: 510;
+    --btn-letter-spacing: -0.01em;
+    --btn-transition: 160ms cubic-bezier(0.4, 0, 0.2, 1);
+    --btn-focus-ring: 0 0 0 3px;
+
+    --gap-none: 0px;
+    --gap-xs:   4px;
+    --gap-sm:   8px;
+    --gap-md:   16px;
+    --gap-lg:   24px;
+    --gap-xl:   40px;
+    --gap-2xl:  64px;
+  
+    --container-sm:       540px;
+    --container-md:       768px;
+    --container-lg:      1024px;
+    --container-xl:      1280px;
+    --container-pad-x:     24px;
+    --container-pad-x-md:  20px;
+    --container-pad-x-sm:  16px;
+
+    --nav-height:          64px;
+    --nav-height-sm:       56px;
+    --nav-bg:              rgba(255, 255, 255, 0.92);
+    --nav-border:          rgba(0, 0, 0, 0.07);
+    --nav-shadow-scrolled: 0 1px 0 rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.05);
+    --nav-drawer-width:    300px;
+    --nav-overlay-bg:      rgba(15, 23, 42, 0.45);
+    --nav-transition:      220ms cubic-bezier(0.4, 0, 0.2, 1);
+    --nav-link-color:      var(--slate-600, #475569);
+    --nav-link-active:     var(--indigo-600, #4f46e5);
+    --nav-link-hover-bg:   var(--slate-100, #f1f5f9);
+    --nav-font:            -apple-system, "Geist", "Inter Variable", BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* --- Toast Specifics --- */
+    --toast-bg-success: var(--emerald-50, #ecfdf5);
+    --toast-border-success: var(--emerald-500, #10b981);
+    --toast-text-success: var(--emerald-800, #065f46);
+    
+    --toast-bg-error: var(--rose-50, #fff1f2);
+    --toast-border-error: var(--rose-500, #f43f5e);
+    --toast-text-error: var(--rose-800, #9f1239);
+
+    --toast-width: 380px;
+    --toast-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
+    --toast-z-index: 9999;
+
+    /* --- Input Specific Tokens --- */
+    --inp-bg: var(--slate-50);
+    --inp-border: var(--slate-200);
+    --inp-text: var(--slate-900);
+    --inp-placeholder: var(--slate-400);
+    --inp-ring: var(--indigo-400);
+    
+    /* Sizes */
+    --inp-h-sm: 32px;
+    --inp-h-md: 42px;
+    --inp-h-lg: 52px;
+    
+    --inp-px-sm: 10px;
+    --inp-px-md: 14px;
+    --inp-px-lg: 18px;
+    
+    --inp-fs-sm: 13px;
+    --inp-fs-md: 15px;
+    --inp-fs-lg: 17px;
+}

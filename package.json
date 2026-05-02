@@ -1,0 +1,25 @@
+{
+  "name": "reactlib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "module": "dist/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src/index.js --format esm,cjs --external react"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18 || ^19"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0",
+    "typescript": "^6.0.3"
+  }
+}

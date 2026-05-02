@@ -1,0 +1,435 @@
+/* ============================================================
+   NAV HEADER
+   Responsive: desktop link bar → mobile right-side drawer
+   Tokens from index.css :root (slate / indigo / amber system)
+   ============================================================ */
+
+/* ============================================================
+     HEADER SHELL
+     ============================================================ */
+
+.nav-header {
+    width: 100%;
+    height: var(--nav-height);
+    background: var(--nav-bg);
+    border-bottom: 1px solid transparent;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition:
+        border-color var(--nav-transition),
+        box-shadow var(--nav-transition),
+        background var(--nav-transition);
+    z-index: 1000;
+    font-family: var(--nav-font);
+}
+
+.nav-header--sticky {
+    position: sticky;
+    top: 0;
+}
+
+/* Gains border + shadow after scrolling */
+.nav-header--scrolled {
+    border-bottom-color: var(--nav-border);
+    box-shadow: var(--nav-shadow-scrolled);
+}
+
+/* Transparent mode — for hero sections */
+.nav-header--transparent {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+    box-shadow: none;
+}
+
+/* ── Inner layout ─────────────────────────────────────────── */
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    gap: 32px;
+}
+
+/* Max-width variants matching Container */
+.nav-inner--sm {
+    max-width: 540px;
+}
+
+.nav-inner--md {
+    max-width: 768px;
+}
+
+.nav-inner--lg {
+    max-width: 1024px;
+}
+
+.nav-inner--xl {
+    max-width: 1280px;
+}
+
+.nav-inner--full {
+    max-width: none;
+}
+
+/* ── Logo ─────────────────────────────────────────────────── */
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    color: var(--slate-900, #0f172a);
+    text-decoration: none;
+    user-select: none;
+}
+
+/* ============================================================
+     DESKTOP NAV LINKS
+     ============================================================ */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* ── NavLink (shared base) ────────────────────────────────── */
+
+.nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 490;
+    letter-spacing: -0.01em;
+    color: var(--nav-link-color);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+        background var(--nav-transition),
+        color var(--nav-transition);
+    outline: none;
+}
+
+.nav-link:hover {
+    background: var(--nav-link-hover-bg);
+    color: var(--slate-50, #1e293b);
+}
+
+.nav-link:focus-visible {
+    box-shadow: 0 0 0 2px var(--indigo-400, #818cf8);
+}
+
+.nav-link--active {
+    color: var(--nav-link-active);
+    font-weight: 560;
+    background: var(--indigo-50, #eef2ff);
+}
+
+.nav-link--active:hover {
+    background: var(--indigo-100, #e0e7ff);
+}
+
+.nav-link__external {
+    opacity: 0.5;
+    flex-shrink: 0;
+    margin-left: 1px;
+}
+
+/* ============================================================
+     HAMBURGER BUTTON
+     ============================================================ */
+
+.nav-burger {
+    display: none;
+    /* hidden on desktop */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    margin-left: auto;
+    outline: none;
+    flex-shrink: 0;
+    transition: background var(--nav-transition);
+}
+
+.nav-burger:hover {
+    background: var(--slate-100, #f1f5f9);
+}
+
+.nav-burger:focus-visible {
+    box-shadow: 0 0 0 2px var(--indigo-400, #818cf8);
+}
+
+.nav-burger__bar {
+    display: block;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--slate-700, #334155);
+    transform-origin: center;
+    transition:
+        transform var(--nav-transition),
+        opacity var(--nav-transition),
+        width var(--nav-transition);
+}
+
+/* Animate bars into X when open */
+.nav-burger--open .nav-burger__bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-burger--open .nav-burger__bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.nav-burger--open .nav-burger__bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ============================================================
+     OVERLAY (mobile)
+     ============================================================ */
+
+.nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: var(--nav-overlay-bg);
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--nav-transition);
+}
+
+.nav-overlay--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ============================================================
+     DRAWER (mobile)
+     ============================================================ */
+
+.nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: var(--nav-drawer-width);
+    max-width: 85vw;
+    background: #fff;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform var(--nav-transition);
+    box-shadow: -4px 0 32px rgba(0, 0, 0, 0.12);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.nav-drawer--open {
+    transform: translateX(0);
+}
+
+/* ── Drawer header ────────────────────────────────────────── */
+
+.nav-drawer__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--nav-height);
+    padding: 0 20px;
+    border-bottom: 1px solid var(--slate-100, #f1f5f9);
+    flex-shrink: 0;
+}
+
+.nav-drawer__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    color: var(--slate-500, #64748b);
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: background var(--nav-transition), color var(--nav-transition);
+}
+
+.nav-drawer__close:hover {
+    background: var(--slate-100, #f1f5f9);
+    color: var(--slate-800, #1e293b);
+}
+
+.nav-drawer__close:focus-visible {
+    box-shadow: 0 0 0 2px var(--indigo-400, #818cf8);
+}
+
+/* ── Drawer links ─────────────────────────────────────────── */
+
+.nav-drawer__links {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 0;
+    gap: 2px;
+    flex: 1;
+}
+
+.nav-link--mobile {
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 490;
+    border-radius: 9px;
+    width: 90%;
+}
+
+.nav-link--mobile.nav-link--active {
+    background: var(--indigo-50, #eef2ff);
+}
+
+/* ── Drawer actions ───────────────────────────────────────── */
+
+.nav-drawer__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 12px 24px;
+    border-top: 1px solid var(--slate-100, #f1f5f9);
+    margin-top: 12px;
+}
+
+/* Make action buttons full-width in drawer */
+.nav-drawer__actions .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ============================================================
+     RESPONSIVE — switch to hamburger at ≤768px
+     ============================================================ */
+
+@media (max-width: 768px) {
+    .nav-inner {
+        padding: 0 16px;
+        gap: 0;
+    }
+
+    /* Hide desktop links and actions */
+    .nav-links,
+    .nav-actions {
+        display: none;
+    }
+
+    /* Show hamburger */
+    .nav-burger {
+        display: flex;
+    }
+
+    /* Show overlay */
+    .nav-overlay {
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-header {
+        height: var(--nav-height-sm);
+    }
+
+    .nav-drawer__header {
+        height: var(--nav-height-sm);
+    }
+}
+
+/* ============================================================
+     DARK MODE
+     ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --nav-bg: rgba(15, 23, 42, 0.92);
+        --nav-border: rgba(255, 255, 255, 0.08);
+        --nav-shadow-scrolled: 0 1px 0 rgba(255, 255, 255, 0.05), 0 4px 16px rgba(0, 0, 0, 0.3);
+        --nav-overlay-bg: rgba(0, 0, 0, 0.6);
+        --nav-link-color: var(--slate-300, #cbd5e1);
+        --nav-link-hover-bg: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-logo {
+        color: var(--slate-50, #f8fafc);
+    }
+
+    .nav-link--active {
+        background: rgba(99, 102, 241, 0.15);
+        color: var(--indigo-400, #818cf8);
+    }
+
+    .nav-link--active:hover {
+        background: rgba(99, 102, 241, 0.22);
+    }
+
+    .nav-burger__bar {
+        background: var(--slate-300, #cbd5e1);
+    }
+
+    .nav-burger:hover {
+        background: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-drawer {
+        background: var(--slate-900, #0f172a);
+        box-shadow: -4px 0 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-drawer__header {
+        border-bottom-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-drawer__actions {
+        border-top-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .nav-link--mobile:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--slate-100, #f1f5f9);
+    }
+
+    .nav-drawer__close {
+        color: var(--slate-400, #94a3b8);
+    }
+
+    .nav-drawer__close:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--slate-100);
+    }
+}
