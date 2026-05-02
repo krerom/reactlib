@@ -289,6 +289,7 @@ function Stack({
 
 // src/NavHeader/NavHeader.jsx
 var import_react3 = __toESM(require("react"));
+var import_lucide_react = require("lucide-react");
 function NavHeader({
   logo,
   links = [],
@@ -389,7 +390,7 @@ function NavHeader({
       role: "dialog",
       "aria-modal": "true"
     },
-    /* @__PURE__ */ import_react3.default.createElement("div", { className: "nav-drawer__header" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "nav-logo" }, logo), /* @__PURE__ */ import_react3.default.createElement("button", { className: "nav-drawer__close", onClick: close, "aria-label": "Close menu" }, /* @__PURE__ */ import_react3.default.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2" }, /* @__PURE__ */ import_react3.default.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ import_react3.default.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" })))),
+    /* @__PURE__ */ import_react3.default.createElement("div", { className: "nav-drawer__header" }, /* @__PURE__ */ import_react3.default.createElement("div", { className: "nav-logo" }, logo), /* @__PURE__ */ import_react3.default.createElement("button", { className: "nav-drawer__close", onClick: close, "aria-label": "Close menu" }, /* @__PURE__ */ import_react3.default.createElement(import_lucide_react.X, null))),
     /* @__PURE__ */ import_react3.default.createElement("nav", { className: "nav-drawer__links" }, links.map((link) => /* @__PURE__ */ import_react3.default.createElement(
       NavLink,
       {
@@ -429,7 +430,7 @@ function NavLink({
       ...props
     },
     label,
-    external && /* @__PURE__ */ import_react3.default.createElement("svg", { className: "nav-link__external", width: "11", height: "11", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5" }, /* @__PURE__ */ import_react3.default.createElement("path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" }), /* @__PURE__ */ import_react3.default.createElement("polyline", { points: "15 3 21 3 21 9" }), /* @__PURE__ */ import_react3.default.createElement("line", { x1: "10", y1: "14", x2: "21", y2: "3" }))
+    external && /* @__PURE__ */ import_react3.default.createElement(import_lucide_react.ExternalLink, null)
   );
 }
 
@@ -471,6 +472,7 @@ function CardFooter({ children, className = "", align = "end" }) {
 
 // src/Toast/Toast.jsx
 var import_react5 = __toESM(require("react"));
+var import_lucide_react2 = require("lucide-react");
 function Toast({
   message,
   type = "success",
@@ -510,7 +512,7 @@ function Toast({
         isExiting && "toast-wrapper--exit"
       ].filter(Boolean).join(" ")
     },
-    /* @__PURE__ */ import_react5.default.createElement("div", { className: `toast toast--${type}`, role: "alert", "aria-live": "assertive" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "toast__icon" }, type === "success" ? /* @__PURE__ */ import_react5.default.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "3" }, /* @__PURE__ */ import_react5.default.createElement("polyline", { points: "20 6 9 17 4 12" })) : /* @__PURE__ */ import_react5.default.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "3" }, /* @__PURE__ */ import_react5.default.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ import_react5.default.createElement("line", { x1: "12", y1: "8", x2: "12", y2: "12" }), /* @__PURE__ */ import_react5.default.createElement("line", { x1: "12", y1: "16", x2: "12.01", y2: "16" }))), /* @__PURE__ */ import_react5.default.createElement("span", { className: "toast__message" }, message), /* @__PURE__ */ import_react5.default.createElement("button", { className: "toast__close", onClick: handleClose, "aria-label": "Dismiss" }, /* @__PURE__ */ import_react5.default.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5" }, /* @__PURE__ */ import_react5.default.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ import_react5.default.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" }))))
+    /* @__PURE__ */ import_react5.default.createElement("div", { className: `toast toast--${type}`, role: "alert", "aria-live": "assertive" }, /* @__PURE__ */ import_react5.default.createElement("div", { className: "toast__icon" }, type === "success" ? /* @__PURE__ */ import_react5.default.createElement(import_lucide_react2.CheckCircle, null) : /* @__PURE__ */ import_react5.default.createElement(import_lucide_react2.AlertCircle, null)), /* @__PURE__ */ import_react5.default.createElement("span", { className: "toast__message" }, message), /* @__PURE__ */ import_react5.default.createElement("button", { className: "toast__close", onClick: handleClose, "aria-label": "Dismiss" }, /* @__PURE__ */ import_react5.default.createElement(import_lucide_react2.X, null)))
   );
 }
 
@@ -545,7 +547,7 @@ function Badge({
 
 // src/Alert/Alert.jsx
 var import_react7 = __toESM(require("react"));
-var import_lucide_react = require("lucide-react");
+var import_lucide_react3 = require("lucide-react");
 function Alert({
   title,
   children,
@@ -557,8 +559,8 @@ function Alert({
   ...props
 }) {
   const role = variant === "danger" ? "alert" : "status";
-  const Icon = icon || defaultIconByVariant[variant] || import_lucide_react.Info;
-  const DismissIcon = import_lucide_react.X;
+  const Icon = icon || defaultIconByVariant[variant] || import_lucide_react3.Info;
+  const DismissIcon = import_lucide_react3.X;
   return /* @__PURE__ */ import_react7.default.createElement(
     "div",
     {
@@ -581,10 +583,10 @@ function Alert({
   );
 }
 var defaultIconByVariant = {
-  info: import_lucide_react.Info,
-  success: import_lucide_react.CheckCircle,
-  warning: import_lucide_react.AlertTriangle,
-  danger: import_lucide_react.XCircle
+  info: import_lucide_react3.Info,
+  success: import_lucide_react3.CheckCircle,
+  warning: import_lucide_react3.AlertTriangle,
+  danger: import_lucide_react3.XCircle
 };
 
 // src/Debounce/DebounceInput.jsx

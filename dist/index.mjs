@@ -235,6 +235,10 @@ function Stack({
 
 // src/NavHeader/NavHeader.jsx
 import React3, { useState, useEffect, useRef, useCallback } from "react";
+import {
+  X,
+  ExternalLink
+} from "lucide-react";
 function NavHeader({
   logo,
   links = [],
@@ -335,7 +339,7 @@ function NavHeader({
       role: "dialog",
       "aria-modal": "true"
     },
-    /* @__PURE__ */ React3.createElement("div", { className: "nav-drawer__header" }, /* @__PURE__ */ React3.createElement("div", { className: "nav-logo" }, logo), /* @__PURE__ */ React3.createElement("button", { className: "nav-drawer__close", onClick: close, "aria-label": "Close menu" }, /* @__PURE__ */ React3.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2" }, /* @__PURE__ */ React3.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ React3.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" })))),
+    /* @__PURE__ */ React3.createElement("div", { className: "nav-drawer__header" }, /* @__PURE__ */ React3.createElement("div", { className: "nav-logo" }, logo), /* @__PURE__ */ React3.createElement("button", { className: "nav-drawer__close", onClick: close, "aria-label": "Close menu" }, /* @__PURE__ */ React3.createElement(X, null))),
     /* @__PURE__ */ React3.createElement("nav", { className: "nav-drawer__links" }, links.map((link) => /* @__PURE__ */ React3.createElement(
       NavLink,
       {
@@ -375,7 +379,7 @@ function NavLink({
       ...props
     },
     label,
-    external && /* @__PURE__ */ React3.createElement("svg", { className: "nav-link__external", width: "11", height: "11", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5" }, /* @__PURE__ */ React3.createElement("path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" }), /* @__PURE__ */ React3.createElement("polyline", { points: "15 3 21 3 21 9" }), /* @__PURE__ */ React3.createElement("line", { x1: "10", y1: "14", x2: "21", y2: "3" }))
+    external && /* @__PURE__ */ React3.createElement(ExternalLink, null)
   );
 }
 
@@ -417,6 +421,11 @@ function CardFooter({ children, className = "", align = "end" }) {
 
 // src/Toast/Toast.jsx
 import React5, { useEffect as useEffect2, useRef as useRef2, useState as useState2 } from "react";
+import {
+  CheckCircle,
+  AlertCircle,
+  X as X2
+} from "lucide-react";
 function Toast({
   message,
   type = "success",
@@ -456,7 +465,7 @@ function Toast({
         isExiting && "toast-wrapper--exit"
       ].filter(Boolean).join(" ")
     },
-    /* @__PURE__ */ React5.createElement("div", { className: `toast toast--${type}`, role: "alert", "aria-live": "assertive" }, /* @__PURE__ */ React5.createElement("div", { className: "toast__icon" }, type === "success" ? /* @__PURE__ */ React5.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "3" }, /* @__PURE__ */ React5.createElement("polyline", { points: "20 6 9 17 4 12" })) : /* @__PURE__ */ React5.createElement("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "3" }, /* @__PURE__ */ React5.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ React5.createElement("line", { x1: "12", y1: "8", x2: "12", y2: "12" }), /* @__PURE__ */ React5.createElement("line", { x1: "12", y1: "16", x2: "12.01", y2: "16" }))), /* @__PURE__ */ React5.createElement("span", { className: "toast__message" }, message), /* @__PURE__ */ React5.createElement("button", { className: "toast__close", onClick: handleClose, "aria-label": "Dismiss" }, /* @__PURE__ */ React5.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5" }, /* @__PURE__ */ React5.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ React5.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" }))))
+    /* @__PURE__ */ React5.createElement("div", { className: `toast toast--${type}`, role: "alert", "aria-live": "assertive" }, /* @__PURE__ */ React5.createElement("div", { className: "toast__icon" }, type === "success" ? /* @__PURE__ */ React5.createElement(CheckCircle, null) : /* @__PURE__ */ React5.createElement(AlertCircle, null)), /* @__PURE__ */ React5.createElement("span", { className: "toast__message" }, message), /* @__PURE__ */ React5.createElement("button", { className: "toast__close", onClick: handleClose, "aria-label": "Dismiss" }, /* @__PURE__ */ React5.createElement(X2, null)))
   );
 }
 
@@ -493,10 +502,10 @@ function Badge({
 import React7 from "react";
 import {
   Info,
-  CheckCircle,
+  CheckCircle as CheckCircle2,
   AlertTriangle,
   XCircle,
-  X
+  X as X3
 } from "lucide-react";
 function Alert({
   title,
@@ -510,7 +519,7 @@ function Alert({
 }) {
   const role = variant === "danger" ? "alert" : "status";
   const Icon = icon || defaultIconByVariant[variant] || Info;
-  const DismissIcon = X;
+  const DismissIcon = X3;
   return /* @__PURE__ */ React7.createElement(
     "div",
     {
@@ -534,7 +543,7 @@ function Alert({
 }
 var defaultIconByVariant = {
   info: Info,
-  success: CheckCircle,
+  success: CheckCircle2,
   warning: AlertTriangle,
   danger: XCircle
 };
