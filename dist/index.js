@@ -297,7 +297,6 @@ function NavHeader({
   maxWidth = "xl",
   transparent = false,
   defaultActive = "#"
-  // Added: let user define starting point
 }) {
   const [open, setOpen] = (0, import_react3.useState)(false);
   const [scrolled, setScrolled] = (0, import_react3.useState)(false);
@@ -546,6 +545,7 @@ function Badge({
 
 // src/Alert/Alert.jsx
 var import_react7 = __toESM(require("react"));
+var import_lucide_react = require("lucide-react");
 function Alert({
   title,
   children,
@@ -557,13 +557,34 @@ function Alert({
   ...props
 }) {
   const role = variant === "danger" ? "alert" : "status";
-  return /* @__PURE__ */ import_react7.default.createElement("div", { className: ["alert", `alert--${variant}`, className].filter(Boolean).join(" "), role, ...props }, /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__icon", "aria-hidden": "true" }, icon || defaultIconByVariant[variant] || defaultIconByVariant.info), /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__content" }, title && /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__title" }, title), children && /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__message" }, children)), dismissible && /* @__PURE__ */ import_react7.default.createElement("button", { className: "alert__dismiss", type: "button", onClick: onDismiss, "aria-label": "Dismiss alert" }, /* @__PURE__ */ import_react7.default.createElement("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.5" }, /* @__PURE__ */ import_react7.default.createElement("line", { x1: "18", y1: "6", x2: "6", y2: "18" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "6", y1: "6", x2: "18", y2: "18" }))));
+  const Icon = icon || defaultIconByVariant[variant] || import_lucide_react.Info;
+  const DismissIcon = import_lucide_react.X;
+  return /* @__PURE__ */ import_react7.default.createElement(
+    "div",
+    {
+      className: ["alert", `alert--${variant}`, className].filter(Boolean).join(" "),
+      role,
+      ...props
+    },
+    /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__icon", "aria-hidden": "true" }, typeof Icon === "function" ? /* @__PURE__ */ import_react7.default.createElement(Icon, { size: 18 }) : Icon),
+    /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__content" }, title && /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__title" }, title), children && /* @__PURE__ */ import_react7.default.createElement("div", { className: "alert__message" }, children)),
+    dismissible && /* @__PURE__ */ import_react7.default.createElement(
+      "button",
+      {
+        className: "alert__dismiss",
+        type: "button",
+        onClick: onDismiss,
+        "aria-label": "Dismiss alert"
+      },
+      /* @__PURE__ */ import_react7.default.createElement(DismissIcon, { size: 16 })
+    )
+  );
 }
 var defaultIconByVariant = {
-  info: /* @__PURE__ */ import_react7.default.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2" }, /* @__PURE__ */ import_react7.default.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "12", y1: "16", x2: "12", y2: "12" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "12", y1: "8", x2: "12.01", y2: "8" })),
-  success: /* @__PURE__ */ import_react7.default.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.4" }, /* @__PURE__ */ import_react7.default.createElement("polyline", { points: "20 6 9 17 4 12" })),
-  warning: /* @__PURE__ */ import_react7.default.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2" }, /* @__PURE__ */ import_react7.default.createElement("path", { d: "M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3l-8.47-14.14a2 2 0 0 0-3.42 0z" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "12", y1: "9", x2: "12", y2: "13" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "12", y1: "17", x2: "12.01", y2: "17" })),
-  danger: /* @__PURE__ */ import_react7.default.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2.2" }, /* @__PURE__ */ import_react7.default.createElement("circle", { cx: "12", cy: "12", r: "10" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "15", y1: "9", x2: "9", y2: "15" }), /* @__PURE__ */ import_react7.default.createElement("line", { x1: "9", y1: "9", x2: "15", y2: "15" }))
+  info: import_lucide_react.Info,
+  success: import_lucide_react.CheckCircle,
+  warning: import_lucide_react.AlertTriangle,
+  danger: import_lucide_react.XCircle
 };
 
 // src/Debounce/DebounceInput.jsx
