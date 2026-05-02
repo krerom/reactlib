@@ -1,24 +1,22 @@
 {
   "name": "reactlib",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "module": "dist/index.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsup src/index.js --format esm,cjs --external react"
+    "build": "tsup src/index.js --format esm,cjs --external react,react-dom,lucide-react"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "lucide-react": "^1.14.0",
-    "react": "^18 || ^19"
-  },
+
   "peerDependencies": {
     "react": "^18 || ^19",
+    "react-dom": "^18 || ^19",
     "lucide-react": "^0.400.0"
   },
+
   "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.400.0",
     "tsup": "^8.5.1",
     "typedoc": "^0.28.19",
     "typedoc-plugin-markdown": "^4.11.0",
