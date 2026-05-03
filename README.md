@@ -38,7 +38,7 @@ If you want to contribute to **reactlib**, follow these steps to set up the proj
 ## 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/reactlib.git
+git clone https://github.com/krerom/reactlib.git
 cd reactlib
 ```
 
